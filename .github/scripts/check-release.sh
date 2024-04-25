@@ -16,7 +16,8 @@ exists=$(
 
 if [[ "$exists" == true ]]; then
     echo "Release ${release_version} already exists."
-    echo "release_exists=true" >>$GITHUB_ENV
+    echo "release_exists=true" >>$GITHUB_OUTPUTS
 else
-    echo "release_exists=false" >>$GITHUB_ENV
+    echo "release_exists=false" >>$GITHUB_OUTPUTS
+
 fi
