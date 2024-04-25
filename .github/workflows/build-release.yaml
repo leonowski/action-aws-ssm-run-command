@@ -46,7 +46,7 @@ jobs:
         run: |
           version=$(cat package.json | jq '.version' --raw-output)
           echo "Version: v${version}"
-          echo "::set-output name=version::v${version}"
+          echo "version=v${version}" >> $GITHUB_ENV
 
       - name: Check if release exists
         id: release-check
