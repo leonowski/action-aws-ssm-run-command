@@ -29,7 +29,7 @@ jobs:
     environment: major-release-update
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Get major release version
         id: get-major-version
