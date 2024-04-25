@@ -46,7 +46,7 @@ jobs:
         run: |
           version=$(cat package.json | jq '.version' --raw-output)
           echo "Version: v${version}"
-          echo "version=v${version}" >> $GITHUB_ENV
+          echo "version=v${version}" >> "$GITHUB_OUTPUT"
 
       - name: Check if release exists
         id: release-check
@@ -71,7 +71,7 @@ jobs:
     if: needs.release-check.outputs.release_exists == 'false'
     steps:
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           name: ${{ needs.release-check.outputs.version }}
           tag_name: ${{ needs.release-check.outputs.version }}
